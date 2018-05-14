@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Curso egghead 02</title>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+	<script type="text/babel">
+		const rootElement = document.getElementById('root');
+		//const helloWorld = <div>Hello world</div>
+		//Isso não é o ideal a se fazer com jsx
+		/*
+		const message = (props) =>  <div>{props.msg}</div>
+		const element = (
+			<div className="container">
+				{message({msg:'Hello world'})}
+				{message({msg:'Goodbye world'})}
+			</div>
+		)
+		*/
+		//Ao invés disso posso fazer algo como:
+		const message = (props) =>  <div>{props.msg}</div>
+
+		//Isso aqui é o mesmo que fazer
+		/*
+		const message = (props) =>  <div>{props.msg}</div>
+		const element = (
+			<div className="container">
+				{React.createElement(message, {msg: 'Hello world'})}
+				{React.createElement(message, {msg: 'Goodbye world'})}
+			</div>
+		)
+		*/
+		//React.createElement aceita receber o elemento HTML ou uma função com props
+
+		//Isso daqui
+		/*
+		const Message = (props) =>  <div>{props.msg}</div>
+		//Isso é um simples component
+		const element = (
+			<div className="container">
+				<Message msg="Hello World"/>
+				<Message msg="Goobye world"/>
+			</div>
+		)
+		*/
+		//Ainda da para melhorar mais
+		const Message = (props) =>  <div>{props.children}</div>
+		const element = (
+			<div className="container">
+				<Message>Hello world</Message>
+				<Message>Goodbye world</Message>
+			</div>
+		)
+		/*
+			É possível chamar o Message dentro de outro
+			<Message>
+				Hello world
+				<Message>Goodbye world</Message>
+			</Message>
+		*/
+		ReactDOM.render(element, rootElement);
+	</script>
+</body>
+</html>

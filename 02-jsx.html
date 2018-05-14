@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Curso egghead 02</title>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+	<script type="text/babel">
+		const rootElement = document.getElementById('root');
+		/*
+		const element = React.createElement('div',
+				{
+					className: 'container',
+					children: 'Hello world' //['Hello world', 'teste']Posso passar um array de elementos filhos aqui
+				});
+		*/
+		const content = "Hello world";
+		const myClassName = "container";
+		const props = {
+			className: "container",
+			children: "Hello world",
+		}
+		//Entre os {} é possível colocar qualquer código JS como funções e arrow functions
+		const element = (
+			<div className="my-class" {...props}/>
+		)
+		/*
+		my-class só será utilizado caso props não tenha o className
+		É como um IF, porém só funciona se a declaração className="my-class"
+		vier primeiro que a chamada de {...props}, se vier depois o className
+		vai ser my-class
+		Se não quiser passar nenhum filho direto na tag mas sim os definidos em
+		props é só utilizar o padrão de <div />, caso queira add filho 
+		é só fazer <div>Filho</div
+		*/
+
+		ReactDOM.render(element, rootElement);
+	</script>
+</body>
+</html>
