@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Curso egghead 02</title>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+	<script type="text/babel">
+		const rootElement = document.getElementById('root');
+		function tick () {
+			const time = new Date().toLocaleTimeString();
+			const element = (
+				<div>
+					It is 
+					<h3>{time}</h3>
+				</div>
+			)
+			ReactDOM.render(element, rootElement);
+		}
+		tick();
+		setInterval(tick, 1000);
+	</script>
+</body>
+</html>
